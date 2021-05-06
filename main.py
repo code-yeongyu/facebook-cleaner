@@ -41,3 +41,18 @@ def open_my_profile():
     driver.get("https://www.facebook.com/me")
     sleep(2)
 
+
+def set_filter_only_friends():
+    open_filter_js = """document.querySelector('[aria-label="필터"]').click()"""
+    open_combobox_js = """document.querySelectorAll('[role="combobox"]')[3].click()"""
+    only_friends_option_js = """document.querySelectorAll('[role="option"]')[1].click()"""
+    click_done_js = """document.querySelector('[aria-label="완료"]').click()"""
+    sleep(0.5)
+    driver.execute_script(open_filter_js)
+    sleep(0.5)
+    driver.execute_script(open_combobox_js)
+    sleep(0.5)
+    driver.execute_script(only_friends_option_js)
+    sleep(0.5)
+    driver.execute_script(click_done_js)
+
