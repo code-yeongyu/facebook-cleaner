@@ -36,3 +36,8 @@ def login(email: str, password: str):
     login_button.click()
     sleep(1)
 
+
+def open_my_profile():
+    driver.get("https://www.facebook.com/me")
+    sleep(2)
+
