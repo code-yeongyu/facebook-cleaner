@@ -56,3 +56,18 @@ def set_filter_only_friends():
     sleep(0.5)
     driver.execute_script(click_done_js)
 
+
+def set_filter_public():
+    open_filter_js = """document.querySelector('[aria-label="필터"]').click()"""
+    open_combobox_js = """document.querySelectorAll('[role="combobox"]')[3].click()"""
+    only_friends_option_js = """document.querySelectorAll('[role="option"]')[0].click()"""
+    click_done_js = """document.querySelector('[aria-label="완료"]').click()"""
+    sleep(0.5)
+    driver.execute_script(open_filter_js)
+    sleep(0.5)
+    driver.execute_script(open_combobox_js)
+    sleep(0.5)
+    driver.execute_script(only_friends_option_js)
+    sleep(0.5)
+    driver.execute_script(click_done_js)
+
