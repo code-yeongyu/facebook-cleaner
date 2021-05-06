@@ -24,3 +24,15 @@ option.add_experimental_option(
 
 # open facebook
 driver = webdriver.Chrome("chromedriver", options=option)
+
+
+def login(email: str, password: str):
+    driver.get("https://www.facebook.com/")
+    email_field = driver.find_element_by_id("email")
+    password_field = driver.find_element_by_id("pass")
+    login_button = driver.find_element_by_name("login")
+    email_field.send_keys(email)
+    password_field.send_keys(password)
+    login_button.click()
+    sleep(1)
+
