@@ -91,3 +91,9 @@ def open_privacy_settings(i: int):
     sleep(0.5)
 
 
+def set_only_me():
+    js = """document.querySelector('[role="dialog"]').children[0].querySelector("div:nth-child(6) > div").click()"""
+    driver.execute_script(js)
+    print("setted only me")
+    sleep(0.5)
+
