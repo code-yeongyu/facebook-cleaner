@@ -76,3 +76,11 @@ def get_article_length() -> int:
     js = """return document.querySelector('[data-pagelet="ProfileTimeline"]').querySelectorAll('[role="article"]').length"""
     return driver.execute_script(js)
 
+
+def is_article_public(i: int) -> bool:
+    js = f"""return document.querySelector('[data-pagelet="ProfileTimeline"]').querySelectorAll('[role="article"]')[{i}].querySelector('img').getAttribute("alt")"""
+    proper_text = driver.execute_script(js)
+    scopes = ["전체 공개", "친구만", "제외할 친구...", "친구의 친구", "특정 친구", "사용자 지정"]
+    return proper_text in ''.join(scopes)
+
+
