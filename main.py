@@ -84,3 +84,10 @@ def is_article_public(i: int) -> bool:
     return proper_text in ''.join(scopes)
 
 
+def open_privacy_settings(i: int):
+    js = f"""return document.querySelector('[data-pagelet="ProfileTimeline"]').children[{i}].querySelector('img').click()"""
+    driver.execute_script(js)
+    print(f"opened privacy settings for {i}")
+    sleep(0.5)
+
+
