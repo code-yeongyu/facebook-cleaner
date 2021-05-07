@@ -71,3 +71,8 @@ def set_filter_public():
     sleep(0.5)
     driver.execute_script(click_done_js)
 
+
+def get_article_length() -> int:
+    js = """return document.querySelector('[data-pagelet="ProfileTimeline"]').querySelectorAll('[role="article"]').length"""
+    return driver.execute_script(js)
+
