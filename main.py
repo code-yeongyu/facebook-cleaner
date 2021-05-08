@@ -97,3 +97,10 @@ def set_only_me():
     print("setted only me")
     sleep(0.5)
 
+
+def scroll_bottom():
+    js = """window.scrollTo(0,0);window.scrollTo(0,document.body.scrollHeight);"""
+    driver.execute_script(js)
+    sleep(0.5)
+
+
