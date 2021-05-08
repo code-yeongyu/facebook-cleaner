@@ -104,3 +104,21 @@ def scroll_bottom():
     sleep(0.5)
 
 
+def set_only_me_if_public(i: int):
+    error_count = 0
+    while True:
+        try:
+            if is_article_public(i):
+                open_privacy_settings(i)
+                set_only_me()
+            else:
+                print(
+                    f"skipped {i} because it's already private or not privatable"
+                )
+            return
+        except Exception as e:
+            print(e)
+            error_count += 1
+            if error_count > 3:  # skip if error occured more than 5 times in a same index
+                return
+
