@@ -122,3 +122,12 @@ def set_only_me_if_public(i: int):
             if error_count > 3:  # skip if error occured more than 5 times in a same index
                 return
 
+
+username = ""
+password = ""
+
+login(username, password)
+open_my_profile()
+
+last_index = 0
+set_filter_only_friends()
