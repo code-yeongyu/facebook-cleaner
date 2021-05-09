@@ -131,3 +131,13 @@ open_my_profile()
 
 last_index = 0
 set_filter_only_friends()
+while True:
+    for i in range(0, 20):
+        scroll_bottom()
+    article_length = get_article_length()
+    print(f"{last_index}/{article_length}")
+    for i in range(last_index, article_length):
+        set_only_me_if_public(i)
+        last_index = i
+    if last_index == article_length:
+        break
