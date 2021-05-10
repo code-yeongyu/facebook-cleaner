@@ -1,3 +1,4 @@
+from os import environ
 from time import sleep
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -122,8 +123,8 @@ def set_only_me_if_public(i: int):
                 return
 
 
-username = ""
-password = ""
+username = environ["username"]
+password = environ["password"]
 
 login(username, password)
 open_my_profile()
