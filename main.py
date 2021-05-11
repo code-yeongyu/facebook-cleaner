@@ -32,14 +32,19 @@ def login(email: str, password: str):
     password_field = driver.find_element_by_id("pass")
     login_button = driver.find_element_by_name("login")
     email_field.send_keys(email)
+    print("Filled username")
     password_field.send_keys(password)
+    print("Filled password")
     login_button.click()
+    print("Clicked Login Button")
     sleep(1)
+    print("Logged In")
 
 
 def open_my_profile():
     driver.get("https://www.facebook.com/me")
     sleep(2)
+    print("Opened facebook")
 
 
 def set_filter_only_friends():
@@ -49,27 +54,35 @@ def set_filter_only_friends():
     click_done_js = """document.querySelector('[aria-label="완료"]').click()"""
     sleep(0.5)
     driver.execute_script(open_filter_js)
+    print("opened filter popup")
     sleep(0.5)
     driver.execute_script(open_combobox_js)
+    print("opened combobox")
     sleep(0.5)
     driver.execute_script(only_friends_option_js)
+    print("setted option as public")
     sleep(0.5)
     driver.execute_script(click_done_js)
+    print("options have setted")
 
 
 def set_filter_public():
     open_filter_js = """document.querySelector('[aria-label="필터"]').click()"""
     open_combobox_js = """document.querySelectorAll('[role="combobox"]')[3].click()"""
-    only_friends_option_js = """document.querySelectorAll('[role="option"]')[0].click()"""
+    public_option_js = """document.querySelectorAll('[role="option"]')[0].click()"""
     click_done_js = """document.querySelector('[aria-label="완료"]').click()"""
     sleep(0.5)
     driver.execute_script(open_filter_js)
+    print("opened filter popup")
     sleep(0.5)
     driver.execute_script(open_combobox_js)
+    print("opened combobox")
     sleep(0.5)
-    driver.execute_script(only_friends_option_js)
+    driver.execute_script(public_option_js)
+    print("setted option as public")
     sleep(0.5)
     driver.execute_script(click_done_js)
+    print("options have setted")
 
 
 def get_article_length() -> int:
@@ -101,6 +114,7 @@ def set_only_me():
 def scroll_bottom():
     js = """window.scrollTo(0,0);window.scrollTo(0,document.body.scrollHeight);"""
     driver.execute_script(js)
+    print("scrolled to bottom")
     sleep(0.5)
 
 
@@ -141,3 +155,6 @@ while True:
         last_index = i
     if last_index == article_length:
         break
+driver.quit()
+
+print("All articles have are now private.")
